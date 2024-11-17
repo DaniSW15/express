@@ -5,10 +5,10 @@ const { jwtSecret } = require('../config/dotenv');  // Asegúrate de tener la va
 
 // Función para autenticar al usuario y generar el token
 const loginUser = async (req, res) => {
-    const { username, password } = req.body;
+    const { name, password } = req.body;
 
     // Buscar al usuario en la base de datos
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ name });
 
     if (!user) {
         return res.status(401).json({ error: "Usuario no encontrado" });
